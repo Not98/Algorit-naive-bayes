@@ -1,0 +1,61 @@
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+    
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <form action="#" id="myForm" role="form" data-toggle="validator" method="post" accept-charset="utf-8">
+
+        <!-- SmartWizard html -->
+        <div id="smartwizard">
+            <ul>
+                <?php for($i=0; $i < count($soal);$i++): ?>
+
+                <li><a href="#step-<?=$i?>">Step 1<br /><small><?=$soal[$i]['layanan']?></small></a></li>
+             <?php endfor?>
+              
+            </ul>
+
+            <div>
+                 <?php for($i=0; $i < count($soal);$i++): ?>
+
+             
+            
+                <div id="step-<?=$i?>">
+                    <h2><?=$soal[$i]['soal']?></h2>
+
+                        <label for=""> Pilihlah Salah satu jawaban</label>
+                     <?php foreach($jawaban as $j):?>
+                        <div id="form-step-<?=$i?>" role="form" data-toggle="validator">
+                            <div class="form-group">
+
+                                <label for="email"><?=$j['kategori']?></label>
+                                 <input type="radio" name="<?=$soal[$i]['soal']?>" id="<?=$soal[$i]['soal']?>" value="<?=$j['id']?>">
+                                
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                     <?php endforeach;?>
+
+                </div>
+        
+                 <?php endfor?>
+
+            </div>
+        </div>
+
+        </form>
+
+   
+
+    
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
